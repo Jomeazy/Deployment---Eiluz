@@ -1,0 +1,33 @@
+node_modules
+apps/desktop/src-tauri/target
+apps/extension
+.git
+*.md
+mockups
+investor-materials
+
+# Secrets — git-based deploys are protected by .gitignore, but `vercel deploy`
+# from the CLI would otherwise bundle local .env files into the upload tarball.
+.env
+.env.*
+!.env.example
+
+# Stale local build artifacts
+.next
+dist
+build
+target
+
+# Hygiene
+*.log
+.DS_Store
+
+# Test + audit output (also gitignored)
+test-results
+visual-audit-screenshots
+aesthetic-audit
+packages/app/e2e/shots
+
+# Vercel + local tool state
+.vercel
+.claude

@@ -1,0 +1,36 @@
+{
+	"name": "signified",
+	"private": true,
+	"type": "module",
+	"workspaces": ["packages/*", "apps/*"],
+	"scripts": {
+		"dev": "cd apps/desktop && bun run tauri dev",
+		"dev:tauri": "cd apps/desktop && bun run tauri dev",
+		"dev:web": "cd apps/web && bun run dev",
+		"build": "cd apps/desktop && bun run tauri build",
+		"build:tauri": "cd apps/desktop && bun run tauri build",
+		"build:web": "cd apps/web && bun run build",
+		"check": "biome check .",
+		"format": "biome format --write .",
+		"test": "vitest run",
+		"test:pr": "vitest run && playwright test --project=chromium --grep-invert '@live|@divergence|@aesthetic'",
+		"test:nightly": "playwright test --project=chromium --grep '@live|@aesthetic'",
+		"test:captures": "playwright test --project=captures",
+		"test:divergence": "playwright test --project=chromium --grep @divergence"
+	},
+	"devDependencies": {
+		"@axe-core/playwright": "^4.11.1",
+		"@biomejs/biome": "^2.4.12",
+		"@playwright/test": "^1.59.1",
+		"@vercel/node": "^5.7.8",
+		"vitest": "^4.1.2"
+	},
+	"dependencies": {
+		"@codemirror/commands": "^6.10.3",
+		"@supabase/supabase-js": "^2.103.0",
+		"@tauri-apps/plugin-dialog": "^2.7.0",
+		"docx": "^9.6.1",
+		"file-saver": "^2.0.5",
+		"jszip": "^3.10.1"
+	}
+}
